@@ -37,22 +37,44 @@ def run_num1():
     user_input = get_input()
     results = run_sequence(user_input)
     check_if_happy(results, user_input)
-
 run_num1()
 
+# 2. 
+def test_prime(test_num):
+    is_prime = True
+    for i in range(2,test_num):
+        temp = test_num % i
+        if temp == 0:
+            is_prime = False
+            break
+    return is_prime
+def print_prime_numbers():
+    for i in range(2,100):
+        if test_prime(i) == True:
+            print(i)
+def run_num2():
+    print_prime_numbers()
+run_num2()
 
-
-
-
-
-
-
-# 3
+# 3.
 def get_input():
-    return input("Please enter a starting number to run the Fibonacci sequence")
-
-
-
-
-
-
+    return input("Please enter a starting number to run the Fibonacci sequence: ")
+def get_iterations():
+    return input('how many iterations do you want to run: ')
+def create_fibonacci(user_input, iterations):
+    list = [int(user_input)]
+    iterations = int(iterations)
+    for i in range(0,iterations - 1):
+        temp = list[i]
+        temp += list[i -1]
+        list.append(temp)
+    return list
+def print_fibonacci(list):
+    for i in list:
+        print(i)
+def run_num3():
+    user_input = get_input()
+    number_iterations = get_iterations()
+    fibonaccri = create_fibonacci(user_input, number_iterations)
+    print_fibonacci(fibonaccri)
+run_num3()
